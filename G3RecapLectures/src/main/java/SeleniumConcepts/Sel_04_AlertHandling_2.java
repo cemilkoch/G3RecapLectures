@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class AlertHandling2 {
+public class Sel_04_AlertHandling_2 {
 
 	public static void main(String[] args) throws InterruptedException {
 

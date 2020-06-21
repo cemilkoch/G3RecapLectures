@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class NavigationConcept {
+public class Sel_02_NavigationConcept {
 
 	public static void main(String[] args) throws Exception {
 		// System.setProperty("webdriver.chrome.driver",
