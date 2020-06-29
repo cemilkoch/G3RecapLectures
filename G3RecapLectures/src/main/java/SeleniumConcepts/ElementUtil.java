@@ -1,7 +1,13 @@
 package SeleniumConcepts;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,6 +19,26 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  *
  */
 public class ElementUtil {
+	/**
+	 * This method is used to click on the element
+	 * 
+	 * @param driver
+	 * @param locator
+	 */
+	public static void clickOn(WebDriver driver, By locator) {
+		driver.findElement(locator).click();
+	}
+
+	/**
+	 * This method is used to close browser
+	 * 
+	 * @param driver
+	 */
+	public static void closeBrowser(WebDriver driver) {
+		driver.close();
+	}
+
+
 	/**
 	 * This method is used to handle alert
 	 * 
@@ -26,6 +52,30 @@ public class ElementUtil {
 		alert.accept();
 		return text;
 	}
+
+	/**
+	 * This method is used to get element
+	 * 
+	 * @param driver
+	 * @param locator
+	 * @return
+	 */
+	public static WebElement getElement(WebDriver driver, By locator) {
+		WebElement element = driver.findElement(locator);
+		return element;
+
+	}
+	
+	/**
+	 * This method is used to get title
+	 * 
+	 * @param driver
+	 * @return
+	 */
+	public static String getPageTitle(WebDriver driver) {
+		return driver.getTitle();
+	}
+	
 
 	/**
 	 * 
@@ -57,18 +107,14 @@ public class ElementUtil {
 	}
 
 	/**
-	 * This method is used to get element
+	 * This method is used to quit browser
 	 * 
 	 * @param driver
-	 * @param locator
-	 * @return
 	 */
-	public static WebElement getElement(WebDriver driver, By locator) {
-		WebElement element = driver.findElement(locator);
-		return element;
-
+	public static void quitBrowser(WebDriver driver) {
+		driver.quit();
 	}
-	
+
 	/**
 	 * This method is used to send characters into a textbox
 	 * 
@@ -80,42 +126,18 @@ public class ElementUtil {
 		driver.findElement(locator).sendKeys(keys);
 	}
 	
-
+	
 	/**
-	 * This method is used to get title
+	 * This method is used to take screenshot
 	 * 
 	 * @param driver
-	 * @return
+	 * @param path
+	 * @throws IOException
 	 */
-	public static String getPageTitle(WebDriver driver) {
-		return driver.getTitle();
+	public static void takeScreenshot(WebDriver driver, String path) throws IOException{
+		File source = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(source, new File(path));
 	}
-
-	/**
-	 * This method is used to click on the element
-	 * 
-	 * @param driver
-	 * @param locator
-	 */
-	public static void clickOn(WebDriver driver, By locator) {
-		driver.findElement(locator).click();
-	}
-
-	/**
-	 * This method is used to close browser
-	 * 
-	 * @param driver
-	 */
-	public static void closeBrowser(WebDriver driver) {
-		driver.close();
-	}
-
-	/**
-	 * This method is used to quit browser
-	 * 
-	 * @param driver
-	 */
-	public static void quitBrowser(WebDriver driver) {
-		driver.quit();
-	}
+	
+	
 }

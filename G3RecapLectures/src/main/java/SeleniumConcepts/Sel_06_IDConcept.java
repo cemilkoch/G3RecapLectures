@@ -46,9 +46,9 @@ public class Sel_06_IDConcept {
 //		usernameElement.sendKeys("cemil@sample.com");
 		
 		// FOURTH USAGE
-		//ElementUtil.getElement(driver, username).sendKeys("cemil@sample.com");
+		ElementUtil.getElement(driver, username).sendKeys("cemil@sample.com");
 		
-		ElementUtil.sendKeys(driver, username, "cemil@sample.com");
+		//ElementUtil.sendKeys(driver, username, "cemil@sample.com");
 		
 		
 
